@@ -1,0 +1,72 @@
+push 0
+jmp ?LEfact
+?LSfact:pass
+push 0
+push 0
+mov [0],[4]
+sce [0],4
+mov [1],[0]
+pop 1
+cmpp [0],0
+jie ?L2
+set [1],1
+pop 0
+ret
+pop 0
+jmp ?L1
+?L2:pass
+push 0
+push 0
+push 0
+mov [0],[5]
+sub [0],1
+mov [1],[0]
+pop 1
+push 0
+mov [0], [1]
+pop 1
+push 0
+call ?LSfact
+mov [2],[0]
+pop 1
+pop 1
+push 0
+mov [0],[4]
+mul [0],[1]
+mov [1],[0]
+pop 1
+mov [2],[0]
+pop 1
+pop 0
+ret
+pop 0
+?L1:pass
+pop 0
+ret
+?LEfact:pass
+jmp ?LEp2
+?LSp2:pass
+push 0
+push 0
+mov [0],[3]
+mul [0],2
+mov [1],[0]
+pop 1
+print [0]
+pop 1
+ret
+?LEp2:pass
+push 0
+push 6
+push 0
+call ?LSfact
+mov [2],[0]
+pop 1
+pop 1
+mov [1],[0]
+pop 1
+print [0]
+push 0
+mov [0], [1]
+call ?LSp2
+pop 1

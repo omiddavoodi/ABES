@@ -1,0 +1,53 @@
+push 0
+goto ?LEfact
+?LSfact:
+push 0
+[0]=[3]==4
+if not [0] pop goto ?L2
+[1]=1
+pop 0
+return
+pop 0
+goto ?L1
+?L2:
+push 0
+push 0
+[0]=[4]-1
+push [0]
+pop 1
+push 0
+call ?LSfact
+[2]=[0]
+pop 1
+pop 1
+[0]=[3]*[0]
+[2]=[0]
+pop 1
+pop 0
+return
+pop 0
+?L1:
+pop 0
+return
+?LEfact:
+goto ?LEp2
+?LSp2:
+push 0
+[0]=[2]*2
+print [0]
+pop 1
+return
+?LEp2:
+push 0
+push 6
+push 0
+call ?LSfact
+[2]=[0]
+pop 1
+pop 1
+[1]=[0]
+pop 1
+print [0]
+push [0]
+call ?LSp2
+pop 1
